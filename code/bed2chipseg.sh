@@ -24,7 +24,7 @@ function get_fasta(){
 	cut -f 2 $bed_wide.fas >/tmp/f3
 	paste /tmp/f2 /tmp/f1 /tmp/f3  >$bed_wide.fas
 
-	 cut -f 4 $bed_in >/tmp/f1
+	cut -f 4 $bed_in >/tmp/f1
 	cut -f 1 $bed_wide.negfas >/tmp/f2
 	cut -f 2 $bed_wide.negfas >/tmp/f3
 	paste /tmp/f2 /tmp/f1 /tmp/f3  >$bed_wide.negfas
@@ -32,7 +32,7 @@ function get_fasta(){
 	python removemasked.py $bed_wide.fas $bed_wide.fa
 	python removemasked.py $bed_wide.negfas $bed_wide.negfa
 
-    # use the length of the available sequences to determine the size of test and  negative sequences
+    # use the length of the available sequences to determine the size of test and negative sequences
 
     lenfa=$(wc -l $bed_wide.fa | cut -f1 -d " ")
     len_negfa=$(wc -l $bed_wide.negfa | cut -f1 -d " ")
@@ -49,13 +49,14 @@ function get_fasta(){
 
     head -$cutoff $bed_wide.fa >$bed_wide.posneg
 	head -$cutoff $bed_wide.negfa >>$bed_wide.posneg
-
+    
+    #clean up the temporary files
 	rm $bed_wide.neg*
 	rm $bed_wide.fa*
-	rm /tmp/f*
+	rm /tmp/f* 
 }
 bed_in=$1
 bed_wide=$2
 hg=$3
-len=${4:-100}
+len=${4:-100} #Use a default f 100 if not provided
 get_fasta

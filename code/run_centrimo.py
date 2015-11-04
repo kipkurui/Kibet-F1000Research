@@ -1,3 +1,15 @@
+
+"""
+This module contaisn functions to run a motif enrichment analysis using CentriMo, 
+summarize and plot the data. 
+
+Requires:
+    meme 4.10.0 obtainable from http://meme-suite.org/doc/download.html?man_type=web
+
+Usage:
+    python run_centrimo.py <Tf_name> <chip-seq_list> <test_meme_file> <test_meme_file> >results_path>
+"""
+
 import os
 import random
 
@@ -10,10 +22,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def run_centrimo(tf, chip_seq_list, test_meme_input, files_path):
+    
+    # If chip_seq list is greater than 10, randomly sample 10.
+    
     if len(chip_seq_list) > 10:
         random.seed(10)
         chip_seq_list = random.sample(chip_seq_list, 10)
-    test_list = []
+        
+    test_list = [] #get list of motifs in meme file
+    
     test_list.append(["Motif"])
     with open(test_meme_input) as motifs:
         for motif_line in motifs:
@@ -21,6 +38,9 @@ def run_centrimo(tf, chip_seq_list, test_meme_input, files_path):
                 test_list.append([motif_line.split()[1]])
 
     def get_centrimo_list(chip_name):
+        '''
+        Extracts important details form a CentriMo run output
+        '''
         with open(chip_name) as cent:
             temp_dict = {}
             for line in cent:
@@ -28,7 +48,7 @@ def run_centrimo(tf, chip_seq_list, test_meme_input, files_path):
                     continue
                 else:
                     temp_dict[line.split()[1]] = float(line.split()[5])*-1
-
+        
         for mot in range(len(test_list)):
             if test_list[mot][0] in temp_dict:
                 test_list[mot].append(temp_dict[test_list[mot][0]])
@@ -37,6 +57,8 @@ def run_centrimo(tf, chip_seq_list, test_meme_input, files_path):
             else:
                 test_list[mot].append(0)
 
+    # Run an enrichment analsysis for each of the given sequences
+    
     for chip_seq in chip_seq_list:
         file_name = chip_seq.split('/')[-1].split('.')[0]
 
@@ -61,7 +83,10 @@ def run_centrimo(tf, chip_seq_list, test_meme_input, files_path):
 
     
 def tab2fasta(posneg, fasta, background):
-
+    '''
+    Since CentriMo takes input in two separate fasta files, this function
+    extracts the positive and the background sequences in two separate files
+    '''
     i = 0
     with open(posneg) as tab:
         with open(fasta, 'w') as fa:
@@ -86,3 +111,14 @@ def plot_centrimo(centrimo_in, figure_output):
                    z_score=None, row_cluster=False, col_cluster=True)
     f = plt.gcf()
     f.savefig(figure_output, bbox_inches='tight')
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 5:
+        print __doc__
+        sys.exit(1)
+    tf = sys.argv[1]
+    chip_seq_list = sys.argv[2]
+    test_meme_input = sys.argv[3]
+    results_path = sys.argv[4]
+    run_centrimo(tf, chip_seq_list, test_meme_input, results_path)

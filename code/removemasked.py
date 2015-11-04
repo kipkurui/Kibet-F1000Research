@@ -29,6 +29,6 @@ if __name__ == '__main__':
     if len(sys.argv) < 3:
         print __doc__
         sys.exit(1)
-    fa = sys.argv[1]
-    out = sys.argv[2]
-    remove_masked(fa, out)
+    input_fa = sys.argv[1]
+    output_fa = sys.argv[2]
+    remove_masked(input_fa, output_fa)

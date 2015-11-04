@@ -1,24 +1,28 @@
 """
 Assess_motif is a python module for assessing the motif Performance using
-ChIP-seq and PBM data.
-z
+ChIP-seq.
 Requires:
-    -> A motif file in meme format\n
-    -> ChIP-seq file (for now) in tab delimited format Chr score sequence \n
-    -> A motif scoring framework to use:\n
-        -gomeroccupancyscore\n
-        -sumoccupancyscore\n
-        -maxoccuopancyscore\n
-        -energyscore\n
+    -> A motif file in meme format
+    -> ChIP-seq file (for now) in tab delimited format Chr score sequence
+    -> A motif scoring framework to use:
+        -gomeroccupancyscore
+        -sumoccupancyscore
+        -maxoccuopancyscore
+        -energyscore
+        -sumlogoddsscore
+        -maxlogoddsscore
+        -amaoccupancyscore
     -> Output file
- Example :
-     python Assess_motifs.py Max-jas.meme Haib-K562-Max-50.posneg gomeroccupancy score Haib-K562-Max-50
+ Usage:
+     python Assess_motifs.py <tf> <scoring_function> <user_motif> <chip_seq_list> <results_folder_path>
 """
 from math import exp
 import os
+import sys
 
 import numpy as np
 from sklearn import metrics
+from scipy import stats
 
 
 import fetch_motif
@@ -348,7 +352,6 @@ def compute_mncp(predicted, cutoff, label):
 
     MNCP is the mean normalized
     """
-    from scipy.stats import stats
     from numpy import mean, array, hstack
     if label == 1:
         fg_vals = predicted[:cutoff]
@@ -384,7 +387,6 @@ def compute_spearman(observed, predicted, cutoff, label=0):
     score and the intensity score
     :param label:
     """
-    from scipy import stats
 
     speaman = stats.spearmanr(observed[:cutoff], predicted[:cutoff])[0]
 
@@ -401,8 +403,6 @@ def compute_pearson(observed, predicted, cutoff, label=1):
     Given data, we need to compute the correlation of the predicted
     score and the existing score
     """
-    from scipy import stats
-
     observed = [float(i) for i in observed]
     predicted = [float(i) for i in predicted]
     observed = [float(i)-np.mean(observed) for i in observed]
@@ -488,6 +488,21 @@ def run_assess(score_function, summary_output, raw_output, user_motif_details, c
         out.write(write_out_data)
 
 
+score_extensions = {"gomeroccupancyscore": 'gomer', "energyscore": 'energy', "amaoccupancyscore": 'ama',
+                    "maxoccupancyscore": 'maxoc', "sumlogoddsscore": 'sumlog', "maxlogoddsscore": 'maxlog',
+                    "sumoccupancyscore": 'sumoc'}
+
+
+def get_tf_names(user_motif):
+    tf_names = []
+    with open(user_motif) as motif_input:
+        for line in motif_input:
+            if line.startswith('MOTIF'):
+                mot_name = line.split(" ")[1]
+                tf_names.append(mot_name)
+    return tf_names
+
+
 def run_all(tf, scoring_function, user_motif, chip_seq_list, results_folder_path):
     import random
     if len(chip_seq_list) > 10:
@@ -512,16 +527,15 @@ def run_all(tf, scoring_function, user_motif, chip_seq_list, results_folder_path
         user_motif_details = fetch_motif.get_motif_from_meme(user_motif, mot_name)
         run_assess(score_option, summary_output_file, raw_output_file, user_motif_details, chip_seq_list)
 
-score_extensions = {"gomeroccupancyscore": 'gomer', "energyscore": 'energy', "amaoccupancyscore": 'ama',
-                    "maxoccupancyscore": 'maxoc', "sumlogoddsscore": 'sumlog', "maxlogoddsscore": 'maxlog',
-                    "sumoccupancyscore": 'sumoc'}
-
-
-def get_tf_names(user_motif):
-    tf_names = []
-    with open(user_motif) as motif_input:
-        for line in motif_input:
-            if line.startswith('MOTIF'):
-                mot_name = line.split(" ")[1]
-                tf_names.append(mot_name)
-    return tf_names
+        
+if __name__ == '__main__':
+    if len(sys.argv) < 6:
+        print __doc__
+        sys.exit(1)
+    tf = sys.argv[1]
+    scoring_function = sys.argv[2]
+    user_motif = sys.argv[3]
+    chip_seq_list = sys.argv[4]
+    results_folder_path = sys.argv[5]
+    
+    run_all(tf, scoring_function, user_motif, chip_seq_list, results_folder_path)
