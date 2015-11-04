@@ -1,6 +1,1 @@
-wheel==0.26.0
-bokeh==0.8.1
-ipython==3.0.0
-pandas==0.16.1
-scikit-learn==0.15.2
-scipy==0.15.1
+tornado >= 4.0
