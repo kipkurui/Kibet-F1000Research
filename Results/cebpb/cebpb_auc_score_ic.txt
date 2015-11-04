@@ -1,0 +1,1 @@
+Motif_name	Motif_IC	Average_IC	Motif_length	energy	gomer	sumlog	sumoc
