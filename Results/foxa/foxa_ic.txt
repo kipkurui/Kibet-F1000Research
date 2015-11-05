@@ -1,0 +1,23 @@
+Motif_name	Motif_IC	Average_IC	Motif_length	Motif_score	Motif_logo
+MA0148.3.JASPAR	13.687886	0.977706	14	0.781195	<img src="/static/files/foxa/motifs/MA0148.3.JASPAR.png" alt="My image" class="img-responsive"/>
+FOXA1_f1.HOCOMOCO	10.373999	1.037400	10	0.760493	<img src="/static/files/foxa/motifs/FOXA1_f1.HOCOMOCO.png" alt="My image" class="img-responsive"/>
+FOXA1_1.HOMER	12.482140	1.386904	9	0.760415	<img src="/static/files/foxa/motifs/FOXA1_1.HOMER.png" alt="My image" class="img-responsive"/>
+FOXA1_2.HOMER	12.854088	1.428232	9	0.756940	<img src="/static/files/foxa/motifs/FOXA1_2.HOMER.png" alt="My image" class="img-responsive"/>
+FOXA_disc1.POUR	12.932430	1.436937	9	0.759833	<img src="/static/files/foxa/motifs/FOXA_disc1.POUR.png" alt="My image" class="img-responsive"/>
+FOXA_disc2.POUR	15.050564	1.672285	9	0.647494	<img src="/static/files/foxa/motifs/FOXA_disc2.POUR.png" alt="My image" class="img-responsive"/>
+FOXA_disc3.POUR	11.271253	1.610179	7	0.602761	<img src="/static/files/foxa/motifs/FOXA_disc3.POUR.png" alt="My image" class="img-responsive"/>
+FOXA_disc4.POUR	11.958969	1.708424	7	0.638519	<img src="/static/files/foxa/motifs/FOXA_disc4.POUR.png" alt="My image" class="img-responsive"/>
+FOXA_disc5.POUR	13.012449	1.626556	8	0.663961	<img src="/static/files/foxa/motifs/FOXA_disc5.POUR.png" alt="My image" class="img-responsive"/>
+Fork_head.MacIsaac	11.957812	1.708259	7	0.715570	<img src="/static/files/foxa/motifs/Fork_head.MacIsaac.png" alt="My image" class="img-responsive"/>
+FOX01.3DFOOTPRINT	15.542607	1.554261	10	0.691869	<img src="/static/files/foxa/motifs/FOX01.3DFOOTPRINT.png" alt="My image" class="img-responsive"/>
+FOXA1_1.GUERTIN	9.308272	0.846207	11	0.751800	<img src="/static/files/foxa/motifs/FOXA1_1.GUERTIN.png" alt="My image" class="img-responsive"/>
+FOXA1_2.GUERTIN	12.929920	0.861995	15	0.675747	<img src="/static/files/foxa/motifs/FOXA1_2.GUERTIN.png" alt="My image" class="img-responsive"/>
+FOXA1_3.GUERTIN	30.997192	1.631431	19	0.670175	<img src="/static/files/foxa/motifs/FOXA1_3.GUERTIN.png" alt="My image" class="img-responsive"/>
+FOXA1_4.GUERTIN	12.760941	0.671628	19	0.659314	<img src="/static/files/foxa/motifs/FOXA1_4.GUERTIN.png" alt="My image" class="img-responsive"/>
+FOXA.1_1.ZLAB	12.905529	0.806596	16	0.760296	<img src="/static/files/foxa/motifs/FOXA.1_1.ZLAB.png" alt="My image" class="img-responsive"/>
+FOXA.1_2.ZLAB	43.971795	1.516269	29	0.666576	<img src="/static/files/foxa/motifs/FOXA.1_2.ZLAB.png" alt="My image" class="img-responsive"/>
+FOXA.1_3.ZLAB	13.057432	0.932674	14	0.618069	<img src="/static/files/foxa/motifs/FOXA.1_3.ZLAB.png" alt="My image" class="img-responsive"/>
+FOXA.1_4.ZLAB	38.185019	1.316725	29	0.683525	<img src="/static/files/foxa/motifs/FOXA.1_4.ZLAB.png" alt="My image" class="img-responsive"/>
+FOXA.1_5.ZLAB	14.316426	1.022602	14	0.657542	<img src="/static/files/foxa/motifs/FOXA.1_5.ZLAB.png" alt="My image" class="img-responsive"/>
+Foxa1.TF2DNA	10.518013	1.314752	8	0.713499	<img src="/static/files/foxa/motifs/Foxa1.TF2DNA.png" alt="My image" class="img-responsive"/>
+M6114_1.02.CIS-BP	11.519427	1.279936	9	0.752873	<img src="/static/files/foxa/motifs/M6114_1.02.CIS-BP.png" alt="My image" class="img-responsive"/>

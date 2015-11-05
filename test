@@ -1,0 +1,22 @@
+.
+├── code
+│   ├── Assess_motifsdb.py
+│   ├── Assess_motifsdb.pyc
+│   ├── bed2chipseg.sh
+│   ├── extractnegative.py
+│   ├── fetch_motif.py
+│   ├── fetch_motif.pyc
+│   ├── __init__.py
+│   ├── removemasked.py
+│   ├── Reproduce_research.ipynb
+│   ├── run_centrimo.py
+│   └── run_centrimo.pyc
+├── Data
+│   ├── Derived
+│   ├── Downloaded
+│   └── Motifs
+├── LICENSE
+├── README.md
+├── README.md~
+├── requirements.txt
+├── Results
