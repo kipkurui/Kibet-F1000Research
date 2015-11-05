@@ -5,6 +5,7 @@ Africa ASBCB Conference on Bioinformatics channel.
 It contains Data, code and an Ipython notebook for reproducibility of the research carried out. 
 
 Structure of the repository is as follows:
+![alt tag](Project_structure.png)
 .
 ├── code
 │   ├── Assess_motifsdb.py
