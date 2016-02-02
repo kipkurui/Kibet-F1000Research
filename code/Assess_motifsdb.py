@@ -90,8 +90,6 @@ def rc_pwm(area_pwm, pwm_len):
 #############################################
 ##Scoring functions
 ###########################################
-
-
 def gomeroccupancyscore(pwm_dictionary, pwm_length, seq):
     """
     Takes as input a PWM dictionary, and a sequences and
@@ -107,7 +105,7 @@ def gomeroccupancyscore(pwm_dictionary, pwm_length, seq):
             if j <= i:
                 prod_gomer *= 0.25
                 prod_gomer_rc *= 0.25
-            elif (j + i) > len(seq):
+            elif (j + i) > len(seq)-1:
                 prod_gomer *= 0.25
                 prod_gomer_rc *= 0.25
             else:
@@ -120,7 +118,7 @@ def gomeroccupancyscore(pwm_dictionary, pwm_length, seq):
         prod_gomer = 1
         prod_gomer_rc = 1
         for j in range(pwm_length - 1):
-            if (j + i) >= len(seq):
+            if (j + i) >= len(seq)-1:
                 prod_gomer *= 0.25
                 prod_gomer_rc *= 0.25
             else:
@@ -160,7 +158,7 @@ def sumlogoddsscore(pwm_dictionary, pwm_length, seq):
     """
     Takes as input a PWM dictionary, and a sequences and
     computes the sum of the log odds scores.
-    
+
     This is the scoring approach that is used by MEME Suite
     """
 
@@ -311,6 +309,8 @@ def energyscore(pwm_dictionary, pwm_length, seq):
             energy_list.append(1 / (1 + (exp(energy_rc))))
     energy_score = min(energy_list)
     return energy_score
+
+
 
 ######################################################################
 ##      Assessment metrics
