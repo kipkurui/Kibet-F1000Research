@@ -1,4 +1,4 @@
-# Kibet-F1000Research
+# Kibet and Machanick (2016)-F1000Research
 This Repository accompanies, Kibet CK and Machanick P. Transcription factor motif quality assessment 
 requires systematic comparative analysis [version 1; referees: 2 approved with reservations]. 
 F1000Research 2015, 4(ISCB Comm J):1429 (doi: 10.12688/f1000research.7408.1)
