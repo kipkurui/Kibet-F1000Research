@@ -26,4 +26,5 @@ python modules required for proper use of the python code provided.
 
 Separate notebooks are provided for PBM and ChIP-seq data processing
 
+## Launch with Binder: [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/kipkurui/kibet-f1000research)
 
