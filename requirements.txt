@@ -1,4 +1,4 @@
-python==2.79
+python==2.7.9
 wheel==0.26.0
 bokeh==0.8.1
 ipython==3.0.0
