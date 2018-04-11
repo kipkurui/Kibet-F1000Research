@@ -10,15 +10,15 @@ Structure of the repository is as follows:
 
 ![alt tag](Project_structure.png)
 
-##Data
+## Data
 
 This contains raw and processed data. For PBM and ChIP-seq data.
 
-##Results
+## Results
 
 Results generated using scripts in the code folder
 
-##Code
+## Code
 
 Folder stores modules used. It also contains an Ipython notebook that provides a walkthrough the execution of 
 the codes and further procersing of the data for visualization. It also contains a requirements file that state the 
