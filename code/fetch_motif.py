@@ -7,7 +7,7 @@ Usage:
 
 '''
 import sys
-
+from __future__ import print_function
 
 def get_motif_from_meme(meme, motif="MOTIF"):
     """
@@ -48,7 +48,7 @@ def get_motif_from_meme(meme, motif="MOTIF"):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print __doc__
+        print(__doc__)
         sys.exit(1)
     meme_file = sys.argv[1]
     motif_name = sys.argv[2]

@@ -463,7 +463,7 @@ def run_assess(score_function, summary_output, raw_output, user_motif_details, c
                 cell_lab = raw_chip_data.split('/')[-1].split('.')[0]
 
                 chip_score = score_chipseq(raw_chip_data, score, user_motif_details)
-                cut_off = len(chip_score[1])/2  # use a flexible cut-off dictated by the sze of teh input file
+                cut_off = len(chip_score[1]) // 2  # use a flexible cut-off dictated by the sze of teh input file
 
                 au = compute_auc(chip_score[1], cut_off, label)
                 auc += [au]
@@ -530,7 +530,7 @@ def run_all(tf, scoring_function, user_motif, chip_seq_list, results_folder_path
         
 if __name__ == '__main__':
     if len(sys.argv) < 6:
-        print __doc__
+        print(__doc__)
         sys.exit(1)
     tf = sys.argv[1]
     scoring_function = sys.argv[2]

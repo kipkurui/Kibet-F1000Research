@@ -9,7 +9,7 @@ Requires:
 Usage:
     python run_centrimo.py <Tf_name> <chip-seq_list> <test_meme_file> <test_meme_file> >results_path>
 """
-
+from __future__ import print_function
 import os
 import random
 
@@ -115,7 +115,7 @@ def plot_centrimo(centrimo_in, figure_output):
 
 if __name__ == '__main__':
     if len(sys.argv) < 5:
-        print __doc__
+        print(__doc__)
         sys.exit(1)
     tf = sys.argv[1]
     chip_seq_list = sys.argv[2]

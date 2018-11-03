@@ -1,3 +1,4 @@
+from __future__ import print_function
 from Assess_motifsdb import *
 
 ###########################################################################
@@ -158,7 +159,7 @@ def run_all_pbm(tf, scoring_function, user_motif, pbm_list, results_folder_path)
 
 if __name__ == '__main__':
     if len(sys.argv) < 6:
-        print __doc__
+        print(__doc__)
         sys.exit(1)
     tf = sys.argv[1]
     scoring_function = sys.argv[2]
